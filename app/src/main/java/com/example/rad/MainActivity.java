@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //hiding action bar
+        getSupportActionBar().hide();
+
         //creating dynamic background
         ConstraintLayout constLayout = findViewById(R.id.main_layout);
 
