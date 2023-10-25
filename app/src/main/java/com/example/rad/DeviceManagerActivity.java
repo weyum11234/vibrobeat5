@@ -2,6 +2,7 @@ package com.example.rad;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,10 +21,15 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
     private EditText txtIP;
     private Button btnConnect;
 
+    public String ipAddress;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_manager);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         //hiding action bar
         getSupportActionBar().hide();
@@ -42,11 +48,14 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
             String ip = txtIP.getText().toString();
 
             //checking for valid ip address
-            boolean valid = isValid(ip);
-            if (valid) {
+            if (isValid(ip)) {
                 try {
-                    //sendPingRequest(ip, v);
+                    //ping test
+                    if (sendPingRequest(ip, v)) {
+                        ipAddress = ip;
+                    }
                 } catch (Exception e) {
+                    Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
                     throw new RuntimeException(e);
                 }
             }
@@ -74,7 +83,7 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
         return matcher.matches();
     }
 
-    /*private boolean sendPingRequest(String ip, View v) throws UnknownHostException, IOException {
+    private boolean sendPingRequest(String ip, View v) throws UnknownHostException, IOException {
         InetAddress addr = InetAddress.getByName(ip);
         Toast.makeText(this, "Connecting...", Toast.LENGTH_SHORT).show();
         if (addr.isReachable(5000)) {
@@ -85,9 +94,9 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
             Toast.makeText(this, "Unable to connect. Try Again.", Toast.LENGTH_SHORT).show();
             return false;
         }
-    }*/
+    }
 
-    private void sendHTTP() {
-
+    public String getIpAddress() {
+        return ipAddress;
     }
 }
