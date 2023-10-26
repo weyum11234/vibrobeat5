@@ -7,8 +7,23 @@
     android:background="#011638">
 
 
+    <ImageButton
+        android:id="@+id/song_manager_button_switch"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="311dp"
+        android:layout_marginTop="655dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_wifi_24" />
+
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/song_manager_edittext_song"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -25,14 +40,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/song_manager_button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginTop="51dp"
         android:layout_marginEnd="159dp"
         android:layout_marginBottom="303dp"
-        android:text="Button"
+        android:text="Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

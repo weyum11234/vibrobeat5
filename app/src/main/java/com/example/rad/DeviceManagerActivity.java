@@ -6,6 +6,7 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.content.Intent;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DeviceManagerActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText txtIP;
     private Button btnConnect;
+    private ImageButton btnSwitch;
 
     public String ipAddress;
 
@@ -40,6 +42,9 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
         //get button
         btnConnect = findViewById(R.id.device_manager_button_connect);
         btnConnect.setOnClickListener(this);
+
+        btnSwitch = findViewById(R.id.device_manager_button_switch);
+        btnSwitch.setOnClickListener(this);
     }
 
     @Override
@@ -60,8 +65,11 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
                 }
             }
             else {
-                Toast.makeText(this, "Please enter a valid IP address.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please enter a valid IP address.", Toast.LENGTH_SHORT).show();
             }
+        }
+        else if (v.getId() == R.id.device_manager_button_switch) {
+            startActivity(new Intent(this, SongManagerActivity.class));
         }
     }
 
