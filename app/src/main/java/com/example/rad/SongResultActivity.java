@@ -1,7 +1,7 @@
 package com.example.rad;
 
 import android.view.View;
-import android.os.Bundle
+import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SongResultActivity extends AppCompatActivity implements View.OnClickListener {
@@ -14,8 +14,10 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(sis);
         setContentView(R.layout.song_result_activity);
 
-
+// Search bar remains while results pop up to allow user to search again
 
     }
     //create 3 boxes
+
+
 }
