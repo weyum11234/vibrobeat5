@@ -27,12 +27,9 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SongManagerActivity"
+            android:name=".SongResultActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".SongResultActivity" android:exported="true" android:screenOrientation="portrait">
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

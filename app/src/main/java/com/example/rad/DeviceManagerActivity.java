@@ -69,7 +69,7 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
             }
         }
         else if (v.getId() == R.id.device_manager_button_switch) {
-            startActivity(new Intent(this, SongManagerActivity.class));
+            startActivity(new Intent(this, SongResultActivity.class));
         }
     }
 

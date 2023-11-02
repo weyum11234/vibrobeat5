@@ -6,11 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#011638">
 
+    <ImageButton
+        android:id="@+id/song_result_button_switch"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="311dp"
+        android:layout_marginTop="655dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_wifi_24" />
+
     <EditText
-        android:id="@+id/song_manager_edittext_song"
+        android:id="@+id/song_result_edittext_search"
         android:layout_width="271dp"
         android:layout_height="52dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="#d0fef5"
         android:ems="10"
         android:hint="Enter Song Name"
@@ -25,10 +40,14 @@
     <FrameLayout
         android:layout_width="312dp"
         android:layout_height="421dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
         android:background="#112545"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="231dp"
-        tools:ignore="MissingConstraints" >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_result_button_submit"
+        tools:ignore="MissingConstraints">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -41,6 +60,19 @@
                 android:orientation="vertical"></LinearLayout>
         </ScrollView>
     </FrameLayout>
+
+    <Button
+        android:id="@+id/song_result_button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="159dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/song_result_edittext_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
