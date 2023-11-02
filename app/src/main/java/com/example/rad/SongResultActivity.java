@@ -16,8 +16,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(sis);
         setContentView(R.layout.song_result_activity);
 
-
-
+        //safety
     }
 
     public void onClick(View v) {
