@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "RAD"
 include(":app")
+include(":app:spotify-app-remote")
