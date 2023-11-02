@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    implementation("com.spotify.android.appremote")
+    implementation("com.google.code.gson:gson:2.8.9")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.compose.ui:ui-graphics-android:1.5.4")
