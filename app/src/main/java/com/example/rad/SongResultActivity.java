@@ -1,5 +1,6 @@
 package com.example.rad;
 
+import android.content.Intent;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.Button;
@@ -16,11 +17,27 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(sis);
         setContentView(R.layout.song_result_activity);
 
-        //safety
+        //hiding action bar
+        getSupportActionBar().hide();
+
+        //get editText
+        txtSong = findViewById(R.id.song_result_edittext_search);
+
+        //get button
+        btnSearch = findViewById(R.id.song_result_button_submit);
+        btnSearch.setOnClickListener(this);
+
+        btnSwitch = findViewById(R.id.song_result_button_switch);
+        btnSwitch.setOnClickListener(this);
     }
 
     public void onClick(View v) {
-
+        if (v.getId() == R.id.song_result_button_submit) {
+            String song = txtSong.getText().toString();
+        }
+        else if (v.getId() == R.id.song_result_button_switch) {
+            startActivity(new Intent(this, DeviceManagerActivity.class));
+        }
     }
 
 
