@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SongResultActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText txtSong;
-    private Button btnSearch;
+    private Button btnSubmit;
     private ImageButton btnSwitch;
     public void onCreate(Bundle sis){
         super.onCreate(sis);
@@ -20,12 +20,12 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
         //hiding action bar
         getSupportActionBar().hide();
 
-        //get editText
+        //get edittext
         txtSong = findViewById(R.id.song_result_edittext_search);
 
         //get button
-        btnSearch = findViewById(R.id.song_result_button_submit);
-        btnSearch.setOnClickListener(this);
+        btnSubmit = findViewById(R.id.song_result_button_submit);
+        btnSubmit.setOnClickListener(this);
 
         btnSwitch = findViewById(R.id.song_result_button_switch);
         btnSwitch.setOnClickListener(this);
@@ -33,7 +33,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
 
     public void onClick(View v) {
         if (v.getId() == R.id.song_result_button_submit) {
-            String song = txtSong.getText().toString();
+
         }
         else if (v.getId() == R.id.song_result_button_switch) {
             startActivity(new Intent(this, DeviceManagerActivity.class));
