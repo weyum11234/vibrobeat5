@@ -33,7 +33,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
 
     public void onClick(View v) {
         if (v.getId() == R.id.song_result_button_submit) {
-
+            String song = txtSong.getText().toString();
         }
         else if (v.getId() == R.id.song_result_button_switch) {
             startActivity(new Intent(this, DeviceManagerActivity.class));
