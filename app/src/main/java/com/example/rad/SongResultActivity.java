@@ -42,9 +42,11 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
             String song = txtSong.getText().toString();
 
             try {
-                URL url = new URL("http://10.18.194.108:5000/getbpm?song=" + song);
+                URL url = new URL("http://216.165.51.224:5000/getbpm?song=" + song);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
+                con.setConnectTimeout(60000);
+                Toast.makeText(this, "Fetching, wait for confirmation. This may take a minute.", Toast.LENGTH_LONG).show();
                 con.connect();
 
                 int status = con.getResponseCode();
@@ -52,6 +54,8 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
                     Toast.makeText(this, "Could not fetch results. Please try again.", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    Toast.makeText(this, "Fetched!", Toast.LENGTH_LONG).show();
+
                     String inline = "";
                     Scanner scanner = new Scanner(url.openStream());
 
@@ -63,6 +67,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
                     int bpm = Integer.parseInt(inline);
 
                     //TODO successfully retrieves bpm, need to now send to ESP8266
+                    Log.i("BPM", inline);
                 }
             }
             catch (Exception e) {
@@ -73,6 +78,4 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
             startActivity(new Intent(this, DeviceManagerActivity.class));
         }
     }
-
-
 }
