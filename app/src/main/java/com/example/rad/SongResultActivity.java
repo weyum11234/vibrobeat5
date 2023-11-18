@@ -1,5 +1,6 @@
 package com.example.rad;
 
+import android.bluetooth.BluetoothClass;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.util.Scanner;
+import com.example.rad.DeviceManagerActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,7 +56,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
                     Toast.makeText(this, "Could not fetch results. Please try again.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(this, "Fetched!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Fetched!", Toast.LENGTH_SHORT).show();
 
                     String inline = "";
                     Scanner scanner = new Scanner(url.openStream());
@@ -64,10 +66,20 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
                     }
                     scanner.close();
 
-                    int bpm = Integer.parseInt(inline);
-
-                    //TODO successfully retrieves bpm, need to now send to ESP8266
                     Log.i("BPM", inline);
+
+                    url = new URL("https://" + DeviceManagerActivity.ipAddress + "/pulse?bpm=" + inline);
+                    con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("POST");
+                    con.connect();
+
+                    status = con.getResponseCode();
+                    if (status != 200) {
+                        Toast.makeText(this, "Could not connect to ESP8266.", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(this, "Connected!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
             catch (Exception e) {

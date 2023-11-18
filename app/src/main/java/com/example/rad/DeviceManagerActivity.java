@@ -23,7 +23,7 @@ public class DeviceManagerActivity extends AppCompatActivity implements View.OnC
     private Button btnConnect;
     private ImageButton btnSwitch;
 
-    public String ipAddress;
+    public static String ipAddress;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
