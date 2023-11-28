@@ -44,10 +44,9 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
             String song = txtSong.getText().toString();
 
             try {
-                URL url = new URL("http://216.165.51.224:5000/getbpm?song=" + song);
+                URL url = new URL("http://192.168.137.206:5000/getbpm?song=" + song);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
-                con.setConnectTimeout(60000);
                 Toast.makeText(this, "Fetching, wait for confirmation. This may take a minute.", Toast.LENGTH_LONG).show();
                 con.connect();
 
@@ -68,7 +67,7 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
 
                     Log.i("BPM", inline);
 
-                    url = new URL("https://" + DeviceManagerActivity.ipAddress + "/pulse?bpm=" + inline);
+                    url = new URL("http://" + DeviceManagerActivity.ipAddress + "/pulse?bpm=" + inline);
                     con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("POST");
                     con.connect();
