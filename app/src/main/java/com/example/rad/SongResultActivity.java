@@ -44,7 +44,8 @@ public class SongResultActivity extends AppCompatActivity implements View.OnClic
             String song = txtSong.getText().toString();
 
             try {
-                URL url = new URL("http://192.168.137.206:5000/getbpm?song=" + song);
+                //put server ip address
+                URL url = new URL("http://<server ip address>/getbpm?song=" + song);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 Toast.makeText(this, "Fetching, wait for confirmation. This may take a minute.", Toast.LENGTH_LONG).show();
